@@ -1,5 +1,5 @@
 terraform {
-  required_version = "~> 0.13.0"
+  required_version = "~> 0.14.0"
   required_providers {
     github = {
       source  = "hashicorp/github"
@@ -7,10 +7,10 @@ terraform {
     }
   }
   backend "s3" {
-    bucket                          = "tts-terraform-s3"
-    key                             = "tts-tech-portfolio/terraform.tfstate"
-    dynamodb_table                  = "tts-terraform-dynamodb-tts-tech-portfolio"
-    region                          = "us-west-2"
+    bucket         = "tts-terraform-s3"
+    key            = "tts-tech-portfolio/terraform.tfstate"
+    dynamodb_table = "tts-terraform-dynamodb-tts-tech-portfolio"
+    region         = "us-west-2"
   }
 }
 
@@ -37,7 +37,7 @@ locals {
     "join.tts.gsa.gov" : { skip_issue_templates = true },
     "laptop" : { archived = true },
     "newrelic-terraform" : {},
-    "private-eye": {},
+    "private-eye" : {},
     "raktabija" : { archived = true },
     "slack-export-handling" : { archived = true },
     "tts-tech-portfolio-private" : {},
