@@ -2,8 +2,7 @@ terraform {
   required_version = "~> 0.14.0"
   required_providers {
     github = {
-      source  = "hashicorp/github"
-      version = "~> 2.4"
+      source = "integrations/github"
     }
   }
   backend "s3" {
@@ -51,7 +50,7 @@ module "repo" {
   source = "./repo"
 
   # skip archived repositories
-  for_each        = { for repo, config in local.repos : repo => config if ! lookup(config, "archived", false) }
+  for_each        = { for repo, config in local.repos : repo => config if !lookup(config, "archived", false) }
   repo            = each.key
   issue_templates = lookup(each.value, "skip_issue_templates", false) ? [] : ["general.md"]
 }
